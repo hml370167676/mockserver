@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>列表页</title>
+</head>
+<body>
+<h1>用例列表</h1>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>姓名</th>
+    <th>生日</th>
+    <th>薪资</th>
+  </tr>
+  <tr th:each="case : ${caseList}">
+    <td th:text="${case.id}">0</td>
+    <td th:text="${case.name}">zhansan</td>
+    <td th:text="${case.birthday}">1988-06-01</td>
+    <td th:text="${case.salary}">12345</td>
+  </tr>
+</table>
+<select>
+  <option th:each="case:${caseList}" th:value="${case.id}" th:text="${case.name}">我是默认值</option>
+</select>
+<div>
+  <div id="formpart"></div>
+  <button id="addform"></button>
+  <form action="#" th:action="@{/case/add}" th:method="post">
+    <div></div>
+
+  </form>
+</div>
+</body>
+<script>
+  $("#addform").click(function(){
+    //添加的内容
+    var addform = '<div id="addformbody"><form role="form"><div class="form-group">' +
+        '<label for="name">实习公司名称</label>' +
+        '<input type="text" class="form-control" placeholder="实习公司名称" required></div>'+
+        '<div class="form-group">' +
+        '<label for="name">实习经历</label>' +
+        '<textarea class="form-control" rows="3" required></textarea></div>'+
+        '<div class="row"><div class="col-md-4"><button type="submit" class="btn btn-primary" >提交实习经历</button>'+
+        '</div><div class="col-md-4 col-md-offset-4"><button type="button" class="btn btn-primary" id="removeform">'+
+        '删除实习经历</button></div></div></form></div>';
+    $("#formpart").after($(addform));
+    //删除表单
+    $("#removeform").click(function(){
+      $("#addformbody").remove();
+    });
+  });
+</script>
+
+</html>
