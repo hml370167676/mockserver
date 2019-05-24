@@ -1,13 +1,10 @@
 package com.uusoft.test.mock.mockserver.controller;
 
 import com.uusoft.test.mock.mockserver.common.Result;
-import com.uusoft.test.mock.mockserver.dao.CaseManagerMapper;
 import com.uusoft.test.mock.mockserver.model.CaseManager;
 import com.uusoft.test.mock.mockserver.service.CaseManagerService;
-import com.uusoft.test.mock.mockserver.service.impl.CaseManagerServiceImpl;
 import com.uusoft.test.mock.mockserver.utils.ConvertUtils;
 import java.util.Map;
-import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
